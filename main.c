@@ -8,11 +8,15 @@
  * main.c
  */
 void main(void) {
+//	unsigned short sampleLeft;
+//	unsigned short sampleRight;
+//	unsigned short sampleFront;
+
     WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
     IFG1 = 0;					// clear interrupt flag1
 
     // configure LEDs as outputto see the lights with the movement
-    P1DIR = BIT0 | BIT6;
+//    P1DIR = BIT0 | BIT6;
 
     // configure pins for use with motor
     P2DIR |= BIT0;
@@ -35,16 +39,22 @@ void main(void) {
     TA1CCR2 = 0x0050;
 
     while(1){
-    	moveForward();
-    	if(/*frontSensorReading() && */!leftSensorReading()){
-    		stop();
-    		__delay_cycles(3000000);
-    		turnLeft(1);
+//   	sampleLeft = leftSensorReading();
+//    	sampleFront = frontSensorReading();
+//    	sampleRight = rightSensorReading();
+//    	moveForward();
+//		__delay_cycles(1000000);
+    	if(leftSensorReading()){
+        	moveForward();
+    		__delay_cycles(1000000);
     	}
-    	else if(frontSensorReading()/* && leftSensorReading()*/){
+    	else if(frontSensorReading()){
     		stop();
     		__delay_cycles(3000000);
     		turnRight(1);
+    	}
+    	else{
+        	turnLeft(1);
     	}
     }
 }
