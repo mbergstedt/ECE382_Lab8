@@ -36,12 +36,12 @@ void main(void) {
 
     while(1){
     	moveForward();
-    	if(frontSensorReading() && !leftSensorReading()){
+    	if(/*frontSensorReading() && */!leftSensorReading()){
     		stop();
     		__delay_cycles(3000000);
     		turnLeft(1);
     	}
-    	else if(frontSensorReading() && leftSensorReading()){
+    	else if(frontSensorReading()/* && leftSensorReading()*/){
     		stop();
     		__delay_cycles(3000000);
     		turnRight(1);
