@@ -1,0 +1,48 @@
+#include <msp430.h> 
+#include "ADC10.h"
+#include "Movement.h"
+
+//#define TURN_90 450000
+
+/*
+ * main.c
+ */
+void main(void) {
+    WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+    IFG1 = 0;					// clear interrupt flag1
+
+    // configure LEDs as outputto see the lights with the movement
+    P1DIR = BIT0 | BIT6;
+
+    // configure pins for use with motor
+    P2DIR |= BIT0;
+    P2DIR |= BIT1;
+    P2DIR |= BIT3;
+    P2DIR |= BIT5;
+
+    // configure the pwms for both motors
+    P2DIR |= BIT2;
+    P2SEL |= BIT2;
+
+    P2DIR |= BIT4;
+    P2SEL |= BIT4;
+
+	TA1CTL = ID_3 | TASSEL_2 | MC_1;		// Use 1:8 presclar off MCLK
+    TA1CCR0 = 0x0100;						// set signal period
+
+    // way coded, moves faster as number gets smaller
+    TA1CCR1 = 0x0050;
+    TA1CCR2 = 0x0050;
+
+    while(1){
+    	do{
+    		moveForward();
+    		if(frontSensorReading()){
+    			stop();
+    			__delay_cycles(300000);
+    			turnRight(1);
+    		}
+    	}while(leftSensorReading());
+    	turnLeft(1);
+    }
+}
