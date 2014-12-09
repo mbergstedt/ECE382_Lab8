@@ -35,14 +35,16 @@ void main(void) {
     TA1CCR2 = 0x0050;
 
     while(1){
-    	do{
-    		moveForward();
-    		if(frontSensorReading()){
-    			stop();
-    			__delay_cycles(300000);
-    			turnRight(1);
-    		}
-    	}while(leftSensorReading());
-    	turnLeft(1);
+    	moveForward();
+    	if(frontSensorReading() && !leftSensorReading()){
+    		stop();
+    		__delay_cycles(3000000);
+    		turnLeft(1);
+    	}
+    	else if(frontSensorReading() && leftSensorReading()){
+    		stop();
+    		__delay_cycles(3000000);
+    		turnRight(1);
+    	}
     }
 }
