@@ -53,7 +53,7 @@ void main(void) {
         		stop();
         		__delay_cycles(2000000);
         		turnRight(1);
-        		__delay_cycles(1200000);
+        		__delay_cycles(1350000);
     		}
     	}
 //   	else if(leftSensorReading()){
@@ -63,7 +63,7 @@ void main(void) {
     		stop();
     		__delay_cycles(2000000);
         	turnLeft(1);
-    		__delay_cycles(1500000);
+    		__delay_cycles(1350000);
 //        	stop();
 //        	__delay_cycles(1000000);
         	moveForward();
