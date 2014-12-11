@@ -47,6 +47,7 @@ void main(void) {
     	if(leftSensorReading()){
     		if(!frontSensorReading()){
             	moveForward();
+        		__delay_cycles(3000000);
     		}
     		else if(frontSensorReading()){
         		stop();
@@ -61,10 +62,11 @@ void main(void) {
     		stop();
     		__delay_cycles(3000000);
         	turnLeft(1);
+    		__delay_cycles(3000000);
 //        	stop();
 //        	__delay_cycles(1000000);
         	moveForward();
-//        	__delay_cycles(1000000);
+    		__delay_cycles(5000000);
     	}
     }
 }
