@@ -47,27 +47,30 @@ void main(void) {
     	if(leftSensorReading()){
     		if(!frontSensorReading()){
             	moveForward();
-        		__delay_cycles(500000);
+        		__delay_cycles(150000);
     		}
     		else if(frontSensorReading()){
         		stop();
         		__delay_cycles(2000000);
         		turnRight(1);
-        		__delay_cycles(1350000);
+        		__delay_cycles(1300000);
     		}
     	}
-//   	else if(leftSensorReading()){
-//   		__delay_cycles(1000000);
-//    	}
+		else if(frontSensorReading()){
+    		stop();
+    		__delay_cycles(2000000);
+    		turnRight(1);
+    		__delay_cycles(1300000);
+		}
     	else{
     		stop();
     		__delay_cycles(2000000);
         	turnLeft(1);
-    		__delay_cycles(1350000);
+    		__delay_cycles(1300000);
 //        	stop();
 //        	__delay_cycles(1000000);
         	moveForward();
-    		__delay_cycles(3500000);
+    		__delay_cycles(3700000);
     	}
     }
 }
