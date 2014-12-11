@@ -58,9 +58,13 @@ void main(void) {
 //   		__delay_cycles(1000000);
 //    	}
     	else{
+    		stop();
+    		__delay_cycles(3000000);
         	turnLeft(1);
+//        	stop();
+//        	__delay_cycles(1000000);
         	moveForward();
-        	__delay_cycles(1000000);
+//        	__delay_cycles(1000000);
     	}
     }
 }
