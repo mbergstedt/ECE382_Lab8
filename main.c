@@ -44,17 +44,19 @@ void main(void) {
 //    	sampleRight = rightSensorReading();
 //    	moveForward();
 //		__delay_cycles(1000000);
-    	if(leftSensorReading()){
-        	moveForward();
-    		__delay_cycles(1000000);
-    	}
-    	else if(frontSensorReading()){
+    	if(frontSensorReading() && leftSensorReading()){
     		stop();
     		__delay_cycles(3000000);
     		turnRight(1);
     	}
+    	else if(leftSensorReading()){
+        	moveForward();
+    		__delay_cycles(1000000);
+    	}
     	else{
         	turnLeft(1);
+        	moveForward();
+        	__delay_cycles(300000);
     	}
     }
 }
