@@ -62,7 +62,7 @@ void main(void) {
     		stop();
     		__delay_cycles(3000000);
         	turnLeft(1);
-    		__delay_cycles(3000000);
+    		__delay_cycles(1000000);
 //        	stop();
 //        	__delay_cycles(1000000);
         	moveForward();
