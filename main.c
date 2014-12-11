@@ -47,12 +47,13 @@ void main(void) {
     	if(leftSensorReading()){
     		if(!frontSensorReading()){
             	moveForward();
-        		__delay_cycles(1000000);
+        		__delay_cycles(500000);
     		}
     		else if(frontSensorReading()){
         		stop();
-        		__delay_cycles(3000000);
+        		__delay_cycles(2000000);
         		turnRight(1);
+        		__delay_cycles(1200000);
     		}
     	}
 //   	else if(leftSensorReading()){
@@ -60,13 +61,13 @@ void main(void) {
 //    	}
     	else{
     		stop();
-    		__delay_cycles(3000000);
+    		__delay_cycles(2000000);
         	turnLeft(1);
-    		__delay_cycles(1000000);
+    		__delay_cycles(1500000);
 //        	stop();
 //        	__delay_cycles(1000000);
         	moveForward();
-    		__delay_cycles(4000000);
+    		__delay_cycles(3500000);
     	}
     }
 }
