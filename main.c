@@ -1,3 +1,10 @@
+/*
+ * Author: Matt Bergstedt
+ * Date: Nov 24, 2014
+ * Description: Drives the robot in multiple directions and provides for turns
+ * Documentation: None
+ */
+
 #include <msp430.h> 
 #include "ADC10.h"
 #include "Movement.h"
